@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gotu&family=Text+Me+One&family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 *{
     padding: 0;
     margin: 0;
@@ -8,6 +9,11 @@
     border: none;
     box-sizing: border-box;
 }
+
+body{
+    width: 100%;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -15,8 +21,6 @@ html{
 .section-1{
     width: 100%;
     height: 761.562px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .home .section-1 .background{
@@ -25,6 +29,7 @@ html{
     background-size: 100%;
     height: 761.562px;
     width: 100%;
+    z-index: 0;
 }
 
 .nav-logo img{
@@ -33,13 +38,15 @@ html{
     z-index: 1;
 }
 
-nav{
+.nav-bar{
     display: flex;
     align-items: center;
     justify-content: right;
     gap: 2rem;
     backdrop-filter: blur(3px);
     z-index: 1;
+    position: fixed;
+    width: 100%;
 }
 
 .nav-links{
@@ -53,99 +60,91 @@ nav{
 
 .link a{
     position: relative;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.05rem;
     color: #202020;
 }
+
+a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #202020;
+    transition: all 0.3s ease;
+}
+
+.link a:hover::after{
+    width: 100%;
+}
+
 
 .nav-logo{
    max-width: 100px;
 }
 
-.container{
-    padding-top: 5rem ;
-    position: relative;
-
-}
-
-.container-logo {
-    height: 130px;
-    display: flex;
+.container-logo{
     align-items: center;
     justify-content: center;
-    margin-top: 3rem;
-}
-  
-.logo{
-    height: 170px;
+    position:relative;
+    display: flex;
 }
 
-.referencia h1 {
-    font-size: 3.9em;
-    font-weight: bold;
-    color: #202020;
-    text-align: center;
-    padding: 10px 0;
-    font-family: "Text Me One", sans-serif;
-}
-  
-.referencia h2 {
-  font-size: 2.7em;
-  font-weight: bold;
-  color: #202020;
-  text-align: center;
-  padding: 10px 0;
-  font-family: "Text Me One", sans-serif;
+.container .container-logo .logo{
+    max-height: 700px;
+    max-width: 700px;
+    margin-top: 3rem;
 }
 
 .section-2{
-    padding-top: 50px;
-    /* padding-left: 15%; */
     width: 100%;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 20px;
 }
 
-.section-2 .wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem; 
-}
-
-.section-2 .wrapper .imagens-arq{
-  width: 329.78px;
-  height: 357.52px;
- 
-}
-
-#imagem1{
-    object-position: left bottom;
-}
-#imagem2{
-    object-fit: cover;
-}
-
-#imagem3{
-    border-radius: 200px 200px 0px 0px;
-    object-fit: cover;
+.wrapper-img img{
+    width: 100%;
+    position: relative;
 }
 
 .section-3{
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    align-items: center;
-    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.wrapper-grid{
+    max-width: 1100px;
+}
+
+.container-grid{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    place-items: center;
+    gap: 1rem;
+    
 }
 
 .biografia{
-    padding: 3rem 2rem;
-    gap: 2em;
+    padding: 3rem 1rem;
 }
 
 .img-perfil{
     padding: 3rem 2rem;
+    align-items: center;
+    
 }
 .img-perfil .perfil{
     width: 387.47px;
@@ -154,17 +153,19 @@ nav{
     object-fit: cover;
 }
 
-.biografia h2{
-    font-family: "Text Me One", sans-serif;
+.biografia h2{    
     margin-bottom: 1rem;
     font-size: 49px;
+    font-family: "Athiti", sans-serif;
+    font-weight: 600;
+    font-style: normal;
 }
 
 .biografia p{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
 }
-
+    
 .section-4{
     width: 100%;
     padding-top: 50px;
@@ -178,7 +179,9 @@ nav{
 }
 
 .bio-servicos h2{
-    font-family: "Text Me One", sans-serif;
+    font-family: "Athiti", sans-serif;
+    font-weight: 600;
+    font-style: normal;
     font-size: 49px;
 }
 
@@ -188,7 +191,9 @@ nav{
 }
 
 .bio-servicos h3{
-    font-family: "Text Me One", sans-serif;
+    font-family: "Athiti", sans-serif;
+    font-weight: 600;
+    font-style: normal;
     font-size: 32px;
 }
 
@@ -196,9 +201,8 @@ nav{
 .bio-servicos .text-serv{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
-    text-align: start;
-    margin-left: 150px;
-    margin-right: 150px;
+    text-align: center;
+    padding: 0 6rem;
     margin-bottom: 50px;
 }
 
@@ -214,27 +218,34 @@ nav{
     object-fit: cover;
 }
 
+.wrapper-grid-2{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .consultoria{
- display: grid;
- grid-template-columns: repeat(2, 1fr);
- margin-left: 150px;
- margin-right: 150px;
- margin-bottom: 100px;
- margin-top: 100px;
- gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    gap: 3rem;
 }
 
 .consultoria-1{
-width: 500px;
+max-width: 500px;
 
 }
 
 .consultoria-2{
-width: 500px;
+max-width: 500px;
 }
 
 .text-consul-h2{
-    font-family: "Text Me One", sans-serif;
+    font-family: "Athiti", sans-serif;
+    font-weight: 600;
+    font-style: normal;
     font-size: 32px;
     margin-bottom: 10px;
 }
@@ -249,18 +260,16 @@ width: 500px;
 ul{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
-    margin-left: 30px;
 }
 
 .text-h3{
     margin-bottom: 8px;
+    align-content: center;
 }
 
 .consul-projetos{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-left: 150px;
-    margin-right: 150px;
     margin-bottom: 80px;
     gap: 3rem;
 }
@@ -273,15 +282,21 @@ ul{
     margin-top: 60px;
 }
 
+.ul-align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .reg{
-    margin-left: 180px;
+    align-items: center;
 }
 .text-reg-p{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
     margin-bottom: 20px;
     text-align: start;
-    margin-left: 150px;
+    padding: 0 5rem;
 }
 
 .section-5 {
@@ -291,21 +306,26 @@ ul{
     align-items: center;
 }
 
-.contato-span{
-    width: 600px;
+.wrapper-contato{
     margin-left: 150px;
+    
+}
+
+.contato-span{
+    max-width: 600px;  
     margin-bottom: 50px;
 }
 
 .text-span{
-    font-family: "Text Me One", sans-serif;
+    font-family: "Athiti", sans-serif;
+    font-weight: 600;
+    font-style: normal;
     font-size: 55px;
 }
 
 .line{
-    width: 700px;
-    height: 3px;
-    margin-left: 150px;
+    max-width: 700px;
+    height: 3px;    
     margin-bottom: 10px;
     border-style: 10px;
     background: #202020;
@@ -315,12 +335,10 @@ ul{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
     margin-bottom: 20px;
-    text-align: start;
-    margin-left: 150px;
+    text-align: start;  
 }
 
 .redes-links{
- margin-left: 150px;
  display: flex;
  align-items: center;
  gap: 1rem;
@@ -350,7 +368,7 @@ ul{
 
 .redes-links .facebook:hover{
     color: #fff;
-    background: #4169E1;
+    background: #3b5998;
     font-size: 2.1rem;
 }
 .redes-links .whatsapp:hover{
@@ -365,14 +383,14 @@ ul{
 }
 
 .email{
- margin-left: 150px;
+ 
  margin-top: 20px;
  display: flex;
  align-items: center;
  gap: 1rem;
 }
 
-.email a{
+.email .button-email{
     color: #fff;
     border: 1px solid #000;
     background: #000;
@@ -383,7 +401,7 @@ ul{
       
 }
 
-.email a:hover{
+.email .button-email:hover{
     color: #000;
     background: #fff;
     font-size: 2.1rem;
@@ -392,12 +410,19 @@ ul{
 .email p{
     font-family: "Gotu", sans-serif;
     font-size: 21px;
+    text-decoration: underline;
+    color: #000;
+}
+
+.email a p:hover{
+    color: #3b5998;
+    font-size: 22px;
+    text-decoration-color: #3b5998;
 }
 
 .avaliacao-escritorio{
     display: flex;
     margin-top: 15px;
-    margin-left: 120px;
     gap: 1rem;
 }
 
@@ -410,6 +435,12 @@ ul{
     font-family: "Gotu", sans-serif;
     font-size: 18px;
     text-decoration: underline;
+    color: #000;
+}
+.avaliacao-escritorio p:hover{
+    color:#3b5998;
+    font-size: 19px;
+    text-decoration-color: #3b5998;
 }
 
 .star-icon{
@@ -435,5 +466,518 @@ ul{
 .star-icon:hover ~ .star-icon::before{
     content: "\2606";
 }
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    
+    header{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-bar{
+        justify-content: center;
+        height: 70px;
+        gap: 0;
+    }   
+
+    .nav-links{
+        font-size: 14px;
+        gap: 1rem;
+        justify-content: space-around;
+    }
+
+    .nav-logo img{
+        display: none;
+    }
+    
+    .section-1{
+        height: 430px;
+    }
+
+    .home .section-1 .background{
+        height: 430px;
+    }
+
+    .container-logo .logo{
+        height: 430px;
+    }
+
+    .wrapper-img img{
+        display: none;
+    }
+
+    .biografia{
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    .biografia h2{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .biografia p{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .img-perfil{
+        padding-top: 10px;
+    }
+
+    .img-perfil .perfil{
+        width: 357.47px;
+        height: 534.95px;
+    }
+
+    .container-grid{
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+
+    .bio-servicos h2{
+        font-size: 43px;
+    }
+
+    .consultoria{
+        grid-template-columns: repeat(1, 1fr); 
+        place-items: center;         
+    }
+
+    .consultoria-1, .consultoria-2{
+        width: 70%;
+    }
+
+    .text-consul-h2{
+        font-size: 30px;
+    }
+
+    .text-consul-p{
+        font-size: 18px;
+    }
+
+
+    .bio-servicos h3{
+        padding: 0 12px;
+        font-size: 29px;
+    }
+
+    .bio-servicos .text-serv{
+        padding: 0 2rem;
+
+    }
+
+    .consul-projetos{
+        grid-template-columns: repeat(1, 1fr);
+        place-items: center;
+        
+    }
+    .consultoria-servicos1, .consultoria-servicos2{
+        width: 70%;
+    }
+
+    .wrapper-contato{
+        justify-content: center;
+        margin: 0 0 0 20px;   
+    }
+
+    .ul-align{
+        padding: 0 5rem;
+    }
+
+    .text-span{
+        font-size: 45px;
+    }
+
+    .contatos-p{
+        font-size: 17px;
+    }
+
+    .email p{
+        font-size: 15px;
+    }
+
+    .line{
+        width: 90%;
+    }
+
+    .avaliacao-escritorio p{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    
+    .nav-bar{
+        height: 120px;
+        gap: 0;
+    }   
+
+    .nav-links{
+        font-size: 15px;
+        gap: 1rem;
+        justify-content: space-around;
+    }
+
+    .nav-logo img{
+        width: 80%;
+    }
+    
+    .section-1{
+        width: 100%;
+        height: 470px;
+    }
+
+    .wrapper-img img{
+        display: none;
+    }
+
+    .home .section-1 .background{
+        height: 470px;
+    }
+
+    .container-logo .logo{
+        min-width: 481px;
+        max-width: 768px;
+        height: 470px;
+        margin-top: 0;
+    }
+
+    .biografia{
+        padding: 0 2rem;
+        width: 100%;
+    }
+
+    .biografia h2{
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .biografia p{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .img-perfil{
+        padding-top: 10px;
+    }
+
+    .img-perfil .perfil{
+        width: 357.47px;
+        height: 534.95px;
+    }
+
+    .container-grid{
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+
+    .bio-servicos h2{
+        font-size: 43px;
+    }
+
+    .consultoria{
+        grid-template-columns: repeat(1, 1fr); 
+        place-items: center;         
+    }
+
+    .consultoria-1, .consultoria-2{
+        width: 70%;
+    }
+
+    .text-consul-h2{
+        font-size: 30px;
+    }
+
+    .text-consul-p{
+        font-size: 18px;
+    }
+
+
+    .bio-servicos h3{
+        padding: 0 12px;
+        font-size: 29px;
+    }
+
+    .bio-servicos .text-serv{
+        padding: 0 2rem;
+
+    }
+
+    .consul-projetos{
+        grid-template-columns: repeat(1, 1fr);
+        place-items: center;
+        
+    }
+    .consultoria-servicos1, .consultoria-servicos2{
+        width: 70%;
+    }
+
+    .wrapper-contato{
+        justify-content: center;
+        margin: 0 0 0 20px;   
+    }
+
+    .ul-align{
+        padding: 0 5rem;
+    }
+
+    .text-span{
+        font-size: 48px;
+    }
+
+    .contatos-p{
+        font-size: 19px;
+    }
+
+    .email p{
+        font-size: 17px;
+    }
+
+    .line{
+        width: 90%;
+    }
+
+    .avaliacao-escritorio p{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    
+    .nav-bar{
+        height: 140px;
+        gap: 0;
+    }   
+
+    .nav-links{
+        font-size: 17px;
+        gap: 1rem;
+        justify-content: space-around;
+    }
+
+    .nav-logo img{
+        width: 80%;
+    }
+    
+    .section-1{
+        width: 100%;
+        height: 510px;
+    }
+
+    
+
+    .home .section-1 .background{
+        height: 510px;
+    }
+
+    .container-logo .logo{
+        min-width: 481px;
+        max-width: 768px;
+        height: 470px;
+        margin-top: 0;
+    }
+
+    .wrapper-img img{
+        display: none;
+    }
+
+    .biografia{
+        padding: 0 2rem;
+        width: 100%;
+    }
+
+    .biografia h2{
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .biografia p{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .img-perfil{
+        padding-top: 10px;
+    }
+
+    .img-perfil .perfil{
+        width: 357.47px;
+        height: 534.95px;
+    }
+
+    .container-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+
+    .bio-servicos h2{
+        font-size: 43px;
+    }
+
+    .consultoria{
+        grid-template-columns: repeat(2, 1fr); 
+        place-items: center;         
+    }
+
+    .consultoria-1, .consultoria-2{
+        width: 70%;
+    }
+
+    .text-consul-h2{
+        font-size: 30px;
+    }
+
+    .text-consul-p{
+        font-size: 18px;
+    }
+
+
+    .bio-servicos h3{
+        padding: 0 12px;
+        font-size: 29px;
+    }
+
+    .bio-servicos .text-serv{
+        padding: 0 2rem;
+
+    }
+
+    .consul-projetos{
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        
+    }
+    .consultoria-servicos1, .consultoria-servicos2{
+        width: 70%;
+    }
+
+    .wrapper-contato{
+        justify-content: center;
+        margin: 0 0 0 20px;   
+    }
+
+    .ul-align{
+        padding: 0 5rem;
+    }
+
+    .text-span{
+        font-size: 48px;
+    }
+
+    .email p{
+        font-size: 17px;
+    }
+
+    .line{
+        width: 90%;
+    }
+
+    .avaliacao-escritorio p{
+        font-size: 16px;
+    }
+}
+
+
+@media only screen and (min-width: 1201px){
+    
+    .biografia{
+        padding: 0 2rem;
+        width: 100%;
+    }
+
+    .biografia h2{
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .biografia p{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .img-perfil{
+        padding-top: 10px;
+    }
+
+    .img-perfil .perfil{
+        width: 357.47px;
+        height: 534.95px;
+    }
+
+    .container-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+
+    .bio-servicos h2{
+        font-size: 43px;
+    }
+
+    .consultoria{
+        grid-template-columns: repeat(2, 1fr); 
+        place-items: center;         
+    }
+
+    .consultoria-1, .consultoria-2{
+        width: 70%;
+    }
+
+    .text-consul-h2{
+        font-size: 30px;
+    }
+
+    .text-consul-p{
+        font-size: 18px;
+    }
+
+
+    .bio-servicos h3{
+        padding: 0 12px;
+        font-size: 29px;
+    }
+
+    .bio-servicos .text-serv{
+        padding: 0 2rem;
+
+    }
+
+    .consul-projetos{
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        
+    }
+    .consultoria-servicos1, .consultoria-servicos2{
+        width: 70%;
+    }
+
+    .wrapper-contato{
+        justify-content: center;
+        margin: 0 0 0 20px;   
+    }
+
+    .ul-align{
+        padding: 0 5rem;
+    }
+
+    .text-span{
+        font-size: 48px;
+    }
+
+    .email p{
+        font-size: 17px;
+    }
+
+    .line{
+        width: 90%;
+    }
+
+    .avaliacao-escritorio p{
+        font-size: 16px;
+    }
+}
+
+
 
 
